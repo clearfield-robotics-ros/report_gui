@@ -1,0 +1,6 @@
+<launch>
+  <group ns="whatever_you_want">
+    <node name="report_gui" type="report_gui.py" pkg="report_gui" output="screen">
+    </node>
+  </group>
+</launch>
