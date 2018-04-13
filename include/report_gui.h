@@ -44,7 +44,17 @@ public:
     virtual void shutdownPlugin();
 
 Q_SIGNALS:
-    void setReportText(const QString str);
+    void setLatestIdText(const QString str);
+    void setLatestActualText(const QString str);
+    void setLatestEstimateText(const QString str);
+    void setLatestCorrectText(const QString str);
+    void setLatestErrorText(const QString str);
+    void setLatestProbeTimeText(const QString str);
+    void setLatestDelayText(const QString str);
+    void setSummaryCorrectText(const QString str);
+    void setSummaryErrorText(const QString str);
+    void setSummaryProbeTimeText(const QString str);
+    void setSummaryDelayText(const QString str);
 
 private Q_SLOTS:
 //This is where you name the
@@ -75,14 +85,15 @@ private:
 //    void talkerClbk(const std_msgs::Int32 &msg);
     void currentStateClbk(const std_msgs::Int16 &msg);
     void resultsClbk(const report_gui::detection_result &msg);
+    const char * const BoolToString(bool b);
 //    void formatOutput();
-//    std::vector<int> mineCount(); // first entry: correct mines. second entry: correct nonmines
-//    std::vector<bool> verifyUnderLimit(const std::vector<float> &data, const float &limit);
+    std::vector<int> mineCount(); // first entry: correct mines. second entry: correct nonmines
+    std::vector<bool> verifyUnderLimit(const std::vector<float> &data, const float &limit);
 //    std::vector<std::string> id;
-//    std::vector<int> id;
-//    std::vector<bool> truth, estimate;
-//    std::vector<float> radius_truth, x_truth, y_truth, radius_estimate, x_estimate, y_estimate, estimate_euclidean_error;
-//    std::vector<float> warning_delay, probe_time;
+    std::vector<int> id;
+    std::vector<bool> truth, estimate;
+    std::vector<float> radius_truth, x_truth, y_truth, radius_estimate, x_estimate, y_estimate, estimate_euclidean_error;
+    std::vector<float> warning_delay, probe_time;
     float max_dist, max_warning_delay, max_probe_time;
     int mine_threshold, nonmine_threshold;
    
